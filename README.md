@@ -13,4 +13,6 @@ $ rake db:migrate
 $ rake db:seed
 $ rails s
 ```
+App will be served on localhost:3000 by default.
+
 ### Coming soon to a Heroku server near you.
