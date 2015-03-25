@@ -10,7 +10,12 @@ connection :neurosky, :adaptor => :neurosky, :port => '/dev/tty.MindWave'
 device :neurosky, :driver => :neurosky, :interval => 0.1
 
 def handle_feed(sender, data)
-  puts "#{sender} | #{data}"
+  content_type :json    
+  headers 'Access-Control-Allow-Origin' => '*', 
+          'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST'],
+          'Access-Control-Allow-Headers' => 'Content-Type' 
+  json data
+  # puts "#{sender} | #{data}"
 end
 
 test = [{thing: 4}]
