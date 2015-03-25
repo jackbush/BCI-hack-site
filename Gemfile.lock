@@ -30,6 +30,7 @@ GEM
     http_parser.rb (0.6.0)
     hybridgroup-mindset (0.4)
       rubyserial (~> 0.1)
+    json (1.8.2)
     method_source (0.8.2)
     multi_json (1.6.1)
     nio4r (1.1.0)
@@ -76,6 +77,7 @@ DEPENDENCIES
   artoo
   artoo-neurosky
   byebug
+  json
   pry
   sinatra
   sinatra-contrib
