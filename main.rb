@@ -4,27 +4,26 @@ require 'sinatra/json'
 require 'json'
 require 'pry-byebug'
 require 'pry'
-require 'artoo'
+# require 'artoo'
 
-connection :neurosky, :adaptor => :neurosky, :port => '/dev/tty.MindWave'
-device :neurosky, :driver => :neurosky, :interval => 0.1
+# connection :neurosky, :adaptor => :neurosky, :port => '/dev/tty.MindWave'
+# device :neurosky, :driver => :neurosky, :interval => 0.1
 
 def handle_eeg(sender, data)
   puts data
 end
 
-eeg = [
-  # the below creats a feed of brain value hashes
-  work do
-    on neurosky, :eeg => :handle_eeg
-  end
-]
+# eeg = [
+#   # the below creates a feed of brain value hashes
+#   work do
+#     on neurosky, :eeg => :handle_eeg
+#   end
+# ]
 
-before do
-  content_type :json    
-  headers 'Access-Control-Allow-Origin' => '*', 
-          'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST'],
-          'Access-Control-Allow-Headers' => 'Content-Type' 
+test = [{thing: 4}]
+
+get '/' do
+  erb :index
 end
 
 options '/eeg' do
@@ -32,9 +31,9 @@ options '/eeg' do
 end
 
 get '/eeg' do
-  json eeg
-end
-
-get '/' do
-  erb :index
+  content_type :json    
+  headers 'Access-Control-Allow-Origin' => '*', 
+          'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST'],
+          'Access-Control-Allow-Headers' => 'Content-Type' 
+  json test
 end
