@@ -1,0 +1,6 @@
+development:
+  sessions:
+    default:
+      database: BCI-site
+      hosts:
+        - localhost:27017
