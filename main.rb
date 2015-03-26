@@ -1,12 +1,13 @@
 require 'sinatra'
-require 'json'
 require 'artoo'
+require 'mongoid'
+require 'json' # POSSIBLY NOT NEEDED
 
-# # GEMS INCOMPATIBLE WITH ARTOO
-# # require 'sinatra/contrib/all'
-# # require 'sinatra/json'
-# # require 'pry-byebug'
-# # require 'pry'
+# GEMS INCOMPATIBLE WITH ARTOO
+# require 'sinatra/contrib/all'
+# require 'sinatra/json'
+# require 'pry-byebug'
+# require 'pry'
 
 connection :neurosky, :adaptor => :neurosky, :port => '/dev/tty.MindWave'
 device :neurosky, :driver => :neurosky, :interval => 0.1
@@ -24,6 +25,7 @@ get '/' do
   erb :index
 end
 
+# SAMPLE JSON ROUTE
 get '/json' do
   # content_type :json    
   # headers 'Access-Control-Allow-Origin' => '*', 
@@ -32,25 +34,35 @@ get '/json' do
   # json test
 end
 
+# MIGHT-WORK REFACTORING OF THE BELOW
+# options '/API/:type' do
+#   200
+# end
+# get '/API/:type' do
+#   work do
+#     on neurosky, :type => :handle_eeg
+#   end
+# end
+
 options '/eeg' do
   200
 end
-get '/eeg' do
+# get '/eeg' do
+  # THIS WORKS ONLY WHEN SEPARATED FROM ROUTE
   work do
     on neurosky, :eeg => :handle_eeg
   end
-end
+# end
 
 options '/attention' do
   200
 end
-# get '/attention' do
-  # THIS WORKS ONLY WHEN SEPARATED FROM ROUTE
+get '/attention' do
   work do
     puts "SCANNING ATTENTION..."
     on neurosky, :attention => :handle_eeg
   end
-# end
+end
 
 options '/meditation' do
   200
