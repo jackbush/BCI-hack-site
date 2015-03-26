@@ -3,6 +3,7 @@ require 'artoo'
 require 'mongoid'
 require 'json' # POSSIBLY NOT NEEDED
 require 'shotgun'
+require 'faye/websocket'
 
 # GEMS INCOMPATIBLE WITH ARTOO
 # (sinatra?)
