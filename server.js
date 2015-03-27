@@ -41,7 +41,10 @@ io.on('connect', function(socket) {
 
   socket.emit('test', {hello: 'world'});
 
-
+  // client.on('data',function(data){
+  //   console.log(data);
+  //   socket.emit('eeg', data)
+  // });
 
 });
 
