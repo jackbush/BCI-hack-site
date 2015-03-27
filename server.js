@@ -4,9 +4,10 @@
 var init = require('./config/init')(),
 	config = require('./config/config'),
 	mongoose = require('mongoose'),
-	chalk = require('chalk');
+	chalk = require('chalk'),
+  neurosky = require('node-neurosky');
 
-var neurosky = require('node-neurosky');
+// var neurosky = require('node-neurosky');
 
 
 
