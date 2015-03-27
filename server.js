@@ -1,16 +1,16 @@
 'use strict';
-/**
- * Module dependencies.
- */
+
+// module dependencies
 var init = require('./config/init')(),
 	config = require('./config/config'),
 	mongoose = require('mongoose'),
 	chalk = require('chalk');
 
-/**
- * Main application entry file.
- * Please note that the order of loading is important.
- */
+var neurosky = require('node-neurosky');
+
+
+
+// main application entry file
 
 // Bootstrap db connection
 var db = mongoose.connect(config.db, function(err) {
@@ -23,6 +23,17 @@ var db = mongoose.connect(config.db, function(err) {
 // Init the express application
 var app = require('./config/express')(db);
 
+var client = neurosky.createClient({
+  appName:'NodeNeuroSky',
+  appKey:'0fc4141b4b45c675cc8d3a765b8d71c5bde9390'
+});
+
+client.connect();
+
+client.on('data',function(data){
+  console.log(data);
+});
+
 // Bootstrap passport config
 require('./config/passport')();
 
@@ -34,3 +45,4 @@ exports = module.exports = app;
 
 // Logging initialization
 console.log('MEAN.JS application started on port ' + config.port);
+
