@@ -9,8 +9,11 @@
   },
   "scripts": {
     "start": "grunt",
-    "test": "grunt test",
     "postinstall": "bower install --config.interactive=false"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackbush/BCI-site"
   },
   "dependencies": {
     "async": "~0.9.0",
