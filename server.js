@@ -23,8 +23,8 @@ var db = mongoose.connect(config.db, function(err) {
 // Init the express application
 var app = require('./config/express')(db);
 
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
+// var server = require('http').createServer(app);
+// var io = require('socket.io')(server);
 
 var client = neurosky.createClient({
   appName:'NodeNeuroSky',
@@ -37,16 +37,16 @@ client.on('data',function(data){
   console.log(data);
 });
 
-io.on('connect', function(socket) {
+// io.on('connect', function(socket) {
 
-  socket.emit('test', {hello: 'world'});
+//   socket.emit('test', {hello: 'world'});
 
-  // client.on('data',function(data){
-  //   console.log(data);
-  //   socket.emit('eeg', data)
-  // });
+//   // client.on('data',function(data){
+//   //   console.log(data);
+//   //   socket.emit('eeg', data)
+//   // });
 
-});
+// });
 
 // Bootstrap passport config
 require('./config/passport')();
