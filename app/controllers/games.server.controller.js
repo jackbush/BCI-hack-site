@@ -1,16 +1,12 @@
 'use strict';
 
-/**
- * Module dependencies.
- */
+// module dependencies
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
 	Game = mongoose.model('Game'),
 	_ = require('lodash');
 
-/**
- * Create a Game
- */
+// create
 exports.create = function(req, res) {
 	var game = new Game(req.body);
 	game.user = req.user;
@@ -26,16 +22,12 @@ exports.create = function(req, res) {
 	});
 };
 
-/**
- * Show the current Game
- */
+// show current
 exports.read = function(req, res) {
 	res.jsonp(req.game);
 };
 
-/**
- * Update a Game
- */
+// update
 exports.update = function(req, res) {
 	var game = req.game ;
 
@@ -52,9 +44,7 @@ exports.update = function(req, res) {
 	});
 };
 
-/**
- * Delete an Game
- */
+// delete
 exports.delete = function(req, res) {
 	var game = req.game ;
 
@@ -69,9 +59,7 @@ exports.delete = function(req, res) {
 	});
 };
 
-/**
- * List of Games
- */
+// list
 exports.list = function(req, res) { 
 	Game.find().sort('-created').populate('user', 'displayName').exec(function(err, games) {
 		if (err) {
@@ -84,9 +72,8 @@ exports.list = function(req, res) {
 	});
 };
 
-/**
- * Game middleware
- */
+
+// Game middleware
 exports.gameByID = function(req, res, next, id) { 
 	Game.findById(id).populate('user', 'displayName').exec(function(err, game) {
 		if (err) return next(err);
@@ -96,9 +83,7 @@ exports.gameByID = function(req, res, next, id) {
 	});
 };
 
-/**
- * Game authorization middleware
- */
+// Game authorization middleware
 exports.hasAuthorization = function(req, res, next) {
 	if (req.game.user.id !== req.user.id) {
 		return res.status(403).send('User is not authorized');
