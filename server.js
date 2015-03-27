@@ -1,6 +1,7 @@
 'use strict';
 
-// module dependencies
+// MODULE DEPENDENCIES
+
 var init = require('./config/init')(),
 	config = require('./config/config'),
 	mongoose = require('mongoose'),
@@ -9,7 +10,7 @@ var init = require('./config/init')(),
 
 // MAIN APPLICATION ENTRY FILE
 
-// Bootstrap db connection
+// bootstrap db connection
 var db = mongoose.connect(config.db, function(err) {
 	if (err) {
 		console.error(chalk.red('Could not connect to MongoDB!'));
@@ -17,7 +18,7 @@ var db = mongoose.connect(config.db, function(err) {
 	}
 });
 
-// Init the express application
+// init express application
 var app = require('./config/express')(db);
 
 var client = neurosky.createClient({
@@ -25,16 +26,14 @@ var client = neurosky.createClient({
   appKey:'0fc4141b4b45c675cc8d3a765b8d71c5bde9390'
 });
 
-// ERROR HANDLING FOR WHEN CLIENT IS NOT CONNECTED
-// NEEDS IMPROVEMENT
-
+// eeg connection -- does not prevent error when thinkgear driver is not on
 try {
   client.connect();
 } catch(e) {
   console.log(e);
 }
 
-// SOCKET
+// SOCKET EMIT
 
 var io = app.get('socketio');
 
