@@ -25,12 +25,19 @@ var client = neurosky.createClient({
   appKey:'0fc4141b4b45c675cc8d3a765b8d71c5bde9390'
 });
 
-client.connect();
+try {
+  client.connect();
+} catch(e) {
+  console.log(e);
+}
 
-client.on('data',function(data){
-  console.log(data);
+var io = app.get('socketio');
+
+io.on('connect', function(socket) {
+  client.on('data',function(data) {
+    socket.emit('eeg', data);
+  });
 });
-
 
 // INITIATING SOCKET
 
