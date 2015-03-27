@@ -37,7 +37,13 @@ client.on('data',function(data){
   console.log(data);
 });
 
+io.on('connect', function(socket) {
 
+  socket.emit('test', {hello: 'world'});
+
+
+
+});
 
 // Bootstrap passport config
 require('./config/passport')();
