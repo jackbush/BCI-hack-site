@@ -56,7 +56,7 @@
 			console.log('EEG SOCKET CONNECTED')
 		});
 		socket.on('eeg', function(data) {
-			console.log(data);
+			// console.log(data);
 			$('.eeg-blink').text(data['blinkStrength']);
 			$('.eeg-attention').text(data['eSense']['attention']);
 			$('.eeg-meditation').text(data['eSense']['meditation']);
