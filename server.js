@@ -26,12 +26,12 @@ var client = neurosky.createClient({
   appKey:'0fc4141b4b45c675cc8d3a765b8d71c5bde9390'
 });
 
-// eeg connection -- does not prevent error when thinkgear driver is not on
-try {
+// EEG CONNECTION (does not prevent error when thinkgear driver is not on)
+// try {
   client.connect();
-} catch(e) {
-  console.log(e);
-}
+// } catch(e) {
+  // console.log(e);
+// }
 
 // SOCKET EMIT
 
