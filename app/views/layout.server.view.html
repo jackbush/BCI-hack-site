@@ -57,7 +57,38 @@
 		});
 		socket.on('eeg', function(data) {
 			console.log(data);
-			$('.eeg-feed').text(data)
+			$('.eeg-attention').text(data['eSense']['attention']);
+			$('.eeg-meditation').text(data['eSense']['meditation']);
+			$('.eeg-delta').text(data['eegPower']['delta']);
+			$('.eeg-theta').text(data['eegPower']['theta']);
+			$('.eeg-low-alpha').text(data['eegPower']['lowAlpha']);
+			$('.eeg-high-alpha').text(data['eegPower']['highAlpha']);
+			$('.eeg-low-beta').text(data['eegPower']['lowBeta']);
+			$('.eeg-high-beta').text(data['eegPower']['highBeta']);
+			$('.eeg-low-gamma').text(data['eegPower']['lowGamma']);
+			$('.eeg-high-gamma').text(data['eegPower']['highGamma']);
+			$('.eeg-blink').text(data['blinkStrength']);
+			$('.eeg-signal').text(data['poorSignalLevel']);
+
+		// 	{ 
+		// 	eSense: { 
+		// 		attention: 53, 
+		// 		meditation: 47 
+		// 	},
+		// 	eegPower: { 
+		// 		delta: 416474,
+		// 		theta: 33592,
+		// 		lowAlpha: 3877,
+		// 		highAlpha: 3142,
+		// 		lowBeta: 1569,
+		// 		highBeta: 3125,
+		// 		lowGamma: 3521,
+		// 		highGamma: 1451 
+		// 	},
+		// 	poorSignalLevel: 0 
+		// }
+		// ```
+		// { blinkStrength: 55 }
 		})
 	</script> 
 	<!--LIVE RELOAD -->

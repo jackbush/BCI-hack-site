@@ -29,6 +29,9 @@ var client = neurosky.createClient({
 // EEG CONNECTION (does not prevent error when thinkgear driver is not on)
 // try {
   client.connect();
+  client.on('data',function(data) {
+    console.log(data['eSense']);
+  });
 // } catch(e) {
   // console.log(e);
 // }
