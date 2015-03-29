@@ -3,15 +3,17 @@
 angular.module('visualisation').controller('VisualisationController', ['$scope',
 	function($scope) {
 
-    var socket = io();
+    var socket = io.connect();
 
     // FOR TESTING CONNECTION
-    // socket.on('connect', function() {
-    //   console.log('EEG SOCKET CONNECTED');
-    // });
+    socket.on('connect', function() {
+      console.log('EEG SOCKET CONNECTED');
+    });
 
+    // FOR QUERYING SOCKET
     socket.on('eeg', function(data) {
-      console.log(data);
+      // $scope.test = 'hello world';
+      console.log(data.poorSignalLevel);
       $scope.eegSignal = data.poorSignalLevel;
       $scope.eegBlink = data.blinkStrength;
       $scope.eegAttention = data.eSense.attention;
@@ -27,5 +29,6 @@ angular.module('visualisation').controller('VisualisationController', ['$scope',
       // $scope.eegBlink = '0'
       // $scope.eegSignal = 100 - (data.poorSignalLevel) / 2;
     });
+    $scope.test = 'hello world';
   }
 ]);
