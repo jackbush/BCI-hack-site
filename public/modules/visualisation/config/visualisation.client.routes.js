@@ -1,5 +1,4 @@
 'use strict';
-console.log('vis connected')
 angular.module('visualisation').config(['$stateProvider',
 	function($stateProvider) {
 		$stateProvider.
