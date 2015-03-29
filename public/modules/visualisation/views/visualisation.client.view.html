@@ -1,3 +1,42 @@
-<div data-ng-controller="VisualisationController">
-	Visualisation to go here
-</div>
+<section data-ng-controller="VisualisationController">
+	<div class="site-home-block">
+    <h1>EEG TEST DATA</h1>
+    <h3>ATTENTION: <span class="eeg-attention"></span></h3>
+    <h3>MEDITATION: <span class="eeg-meditation"></span></h3>
+    <h3>DELTA: <span class="eeg-delta"></span></h3>
+    <h3>THETA: <span class="eeg-theta"></span></h3>
+    <h3>LOW ALPHA: <span class="eeg-low-alpha"></span></h3>
+    <h3>HIGH ALPHA: <span class="eeg-high-alpha"></span></h3>
+    <h3>LOW BETA: <span class="eeg-low-beta"></span></h3>
+    <h3>HIGH BETA: <span class="eeg-high-beta"></span></h3>
+    <h3>LOW GAMMA: <span class="eeg-low-gamma"></span></h3>
+    <h3>HIGH GAMMA: <span class="eeg-high-gamma"></span></h3>
+    <h3>BLINK: <span class="eeg-blink"></span></h3>
+    <h3>SIGNAL: <span class="eeg-signal"></span></h3>
+  </div>
+</section>
+<!-- EEG SOCKET -->
+<!-- do this without jQuery -->
+<script>
+  var socket = io();
+  socket.on('connect', function() {
+    console.log('EEG SOCKET CONNECTED')
+  });
+  socket.on('eeg', function(data) {
+    // console.log(data);
+    $('.eeg-blink').text(data['blinkStrength']);
+    $('.eeg-attention').text(data['eSense']['attention']);
+    $('.eeg-meditation').text(data['eSense']['meditation']);
+    $('.eeg-delta').text(data['eegPower']['delta']);
+    $('.eeg-theta').text(data['eegPower']['theta']);
+    $('.eeg-low-alpha').text(data['eegPower']['lowAlpha']);
+    $('.eeg-high-alpha').text(data['eegPower']['highAlpha']);
+    $('.eeg-low-beta').text(data['eegPower']['lowBeta']);
+    $('.eeg-high-beta').text(data['eegPower']['highBeta']);
+    $('.eeg-low-gamma').text(data['eegPower']['lowGamma']);
+    $('.eeg-high-gamma').text(data['eegPower']['highGamma']);
+    $('.eeg-blink').text('0');
+    var signal_strength = 100 - (data['poorSignalLevel']) / 2
+    $('.eeg-signal').text(signal_strength);
+  })
+</script> 
