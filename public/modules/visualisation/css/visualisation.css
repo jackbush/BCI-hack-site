@@ -4,4 +4,8 @@
   float: left;
   padding: 50px;
   background: #eee;
+  z-index: 100;
+}
+canvas {
+  float: right;
 }
