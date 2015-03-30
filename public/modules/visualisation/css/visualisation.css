@@ -1,4 +1,4 @@
-.eeg-feed-block {
+.eeg-feed-data {
   height: 500px;
   width: 320px;
   float: left;
@@ -6,6 +6,6 @@
   background: #eee;
   z-index: 100;
 }
-canvas {
+#eeg-feed-graph {
   float: right;
 }
