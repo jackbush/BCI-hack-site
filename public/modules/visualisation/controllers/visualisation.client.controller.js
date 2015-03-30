@@ -13,7 +13,7 @@ angular.module('visualisation').controller('VisualisationController', ['$scope',
     // FOR QUERYING SOCKET
     socket.on('eeg', function(data) {
       // $scope.test = 'hello world';
-      console.log(data.poorSignalLevel);
+      console.log(data.eSense.attention);
       $scope.eegSignal = data.poorSignalLevel;
       $scope.eegBlink = data.blinkStrength;
       $scope.eegAttention = data.eSense.attention;
