@@ -6,6 +6,6 @@
   background: #eee;
   z-index: 100;
 }
-#eeg-feed-graph {
+.eeg-feed-graph {
   float: right;
 }

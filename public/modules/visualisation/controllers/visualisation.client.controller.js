@@ -29,6 +29,5 @@ angular.module('visualisation').controller('VisualisationController', ['$scope',
       // $scope.eegBlink = '0'
       // $scope.eegSignal = 100 - (data.poorSignalLevel) / 2;
     });
-    $scope.test = 'hello world';
   }
 ]);
