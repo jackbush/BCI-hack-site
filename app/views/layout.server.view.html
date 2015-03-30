@@ -46,6 +46,7 @@
 	</script>
 	<!--APPLICATION JS-->
 	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}
+	<script type="text/javascript" src="socket.js"></script>
 	<!--LIVE RELOAD -->
 	{% if process.env.NODE_ENV === 'development' %}
 		<script type="text/javascript" src="http://{{request.hostname}}:35729/livereload.js"></script>
