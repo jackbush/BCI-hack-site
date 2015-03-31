@@ -1,6 +1,7 @@
-/*generic*/
+/*GENERIC*/
 * {
   box-sizing: border-box;
+  font-family: 'DIN', sans-serif
 }
 body {
   padding: 0;
@@ -17,8 +18,7 @@ h1 {
 p {
   font-family: 'Georgia'
 }
-
-/*nav*/
+/*NAV*/
 .site-header {
   position: fixed;
   width: 100%;
@@ -26,56 +26,71 @@ p {
   top: 0;
   padding: 0px;
   background: rgba(20,20,20,1);
+  text-transform: uppercase;
+}
+.site-header a {
+  text-decoration: none;
+  color: white;
 }
 .nav-title {
-  float: left;
-  font-size: 16px; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  width: 200px;
+  height: 50px;
+  background: rgba(20,20,20,1);
+  font-size: 24px;
 }
 .nav-items {
   float: right;
-  margin-top: 15px;
+  margin: 13px 200px 0px 0px;
   text-align: center;
+}
+.nav-items a {
+  text-decoration: none;
   color: white;
 }
 .nav-item {
   display:inline-block;
-  width: 90px;
-  font-size: 12px;
-  padding: 3px;
-  margin: 2px;
-  border: 1px solid #22223B;
+  width: 120px;
+  font-size: 11px;
+  padding: 5px;
+  margin-right: 20px;
+  border: 1px solid white;
 }
 .nav-item a {
   text-decoration: none;
 }
 .nav-eeg {
-  display: inline-block;
-  float: right;
-  width: 300px;
-  background: #222;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
   height: 50px;
-  margin: 0;
+  background: #282828;
+  text-align: right;
+  padding: 10px;
+  font-size: 24px;
+  color: black !important;
 }
-
-
 .content {
 	margin-top: 50px;
 }
-.undecorated-link:hover {
-	text-decoration: none;
-}
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-	display: none !important;
-}
-.ng-invalid.ng-dirty {
-	border-color: #FA787E;
-}
-.ng-valid.ng-dirty {
-	border-color: #78FA89;
-}
+/*HOMEPAGE*/
 .site-home-block {
   min-height: 500px;
   margin-bottom: 5px;
   padding: 50px;
   background: #eee;
+}
+/*BAKED IN*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+.ng-invalid.ng-dirty {
+  border-color: #FA787E;
+}
+.ng-valid.ng-dirty {
+  border-color: #78FA89;
 }
