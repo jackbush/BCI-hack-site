@@ -44,7 +44,7 @@ p {
 }
 .nav-items {
   float: right;
-  margin: 13px 200px 0px 0px;
+  margin: 13px 220px 0px 0px;
   text-align: center;
 }
 .nav-items a {
@@ -66,13 +66,33 @@ p {
   position: fixed;
   top: 0;
   right: 0;
-  width: 200px;
+  width: 220px;
   height: 50px;
-  background: #282828;
-  text-align: right;
-  padding: 10px;
+  background: white;
+  padding: 0;
   font-size: 24px;
   color: black !important;
+  transition: 0.3s;
+}
+.nav-eeg-extended {
+  height: 358px;
+}
+.nav-eeg-top {
+  width: 220px;
+  height: 50px;
+  padding: 10px;
+  background: #282828;
+  text-align: right;
+}
+.nav-eeg-bottom {
+  padding: 0 10px 10px 10px;
+}
+.nav-eeg h5 {
+  margin: 20px 0 5px 0;
+}
+.nav-eeg h6 {
+  margin: 1px;
+  font-weight: normal;
 }
 .content {
 	margin-top: 50px;

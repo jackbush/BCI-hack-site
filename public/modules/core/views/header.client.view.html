@@ -6,5 +6,24 @@
 		<a href="/#!/"><li class="nav-item">Games</li></a>
 		<a href="/#!/about"><li class="nav-item">About</li></a>
 	</ul>
-	<a href="/#!/"><span class="nav-eeg">Connection</span></a>
+	<a href="/#!/">
+    <div class="nav-eeg nav-eeg-extended" ng-click="">
+      <div class="nav-eeg-top">Connection</div>
+      <div class="nav-eeg-bottom">
+        <h5>EEG DATA</h5>
+        <h6>SIGNAL: {{eegSignal ? eegSignal : '0'}}%</h6>
+        <h6>ATTENTION: {{eegAttention}}</h6>
+        <h6>MEDITATION: {{eegMeditation}}</h6>
+        <h6>DELTA: {{eegDelta}}</h6>
+        <h6>THETA: {{eegTheta}}</h6>
+        <h6>LOW ALPHA: {{eegLowAlpha}}</h6>
+        <h6>HIGH ALPHA: {{eegHighAlpha}}</h6>
+        <h6>LOW BETA: {{eegLowBeta}}</h6>
+        <h6>HIGH BETA: {{eegHighBeta}}</h6>
+        <h6>LOW GAMMA: {{eegLowGamma}}</h6>
+        <h6>HIGH GAMMA: {{eegHighGamma}}</h6>
+        <h6>BLINK: {{eegBlink}}</h6>
+      </div>
+    </div>
+  </a>
 </div>
