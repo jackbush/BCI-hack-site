@@ -9,8 +9,8 @@ angular.module('visualisation').factory('Eegvisualisation', ['p5',
 	    p.setup = function() {
 	      var eegCanvas = p.createCanvas(600, 500);
 			  p.background(238);
-		    socket.on('connect', function() {
-		      console.log('VIS SOCKET CONNECTED');
+		    socket.on('eeg', function(data) {
+		      console.log(data.eSense.attention);
 		    });
 	    };
 
