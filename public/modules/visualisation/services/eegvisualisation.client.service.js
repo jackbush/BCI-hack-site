@@ -8,7 +8,6 @@ angular.module('visualisation').factory('Eegvisualisation', ['p5',
 	    p.setup = function() {
 	      var eegCanvas = p.createCanvas(600, 400);
 			  p.background(200);
-			  eegCanvas.parent('eeg-canvas');
 	    };
 
 	    p.draw = function() {

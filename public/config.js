@@ -4,7 +4,7 @@
 var ApplicationConfiguration = (function() {
 	// Init module configuration options
 	var applicationModuleName = 'bci-site';
-	var applicationModuleVendorDependencies = ['ngResource', 'ngTouch',  'ui.router', 'ui.bootstrap', 'ui.utils', 'btford.socket-io'];
+	var applicationModuleVendorDependencies = ['ngResource', 'ngTouch',  'ui.router', 'ui.bootstrap', 'ui.utils', 'btford.socket-io', 'angular-p5'];
 
 	// Add a new vertical module
 	var registerModule = function(moduleName, dependencies) {
