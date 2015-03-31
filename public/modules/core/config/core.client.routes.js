@@ -9,6 +9,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 			url: '/',
 			templateUrl: 'modules/core/views/home.client.view.html'
 		})
+		.state('introduction', {
+			url: '/introduction',
+			templateUrl: 'modules/core/views/introduction.client.view.html'
+		})
 		.state('about', {
 			url: '/about',
 			templateUrl: 'modules/core/views/about.client.view.html'

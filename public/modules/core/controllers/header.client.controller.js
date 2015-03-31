@@ -2,6 +2,10 @@
 
 angular.module('core').controller('HeaderController', ['$scope', 'socketFactory',
   function($scope, socketFactory) {
+    $scope.check = false;
+    $scope.toggleEeg = function() {
+        $scope.check = $scope.check === false ? true: false;
+    };
     // FOR TESTING CONNECTION
     // var socket = io.connect();
     // socket.on('connect', function() {

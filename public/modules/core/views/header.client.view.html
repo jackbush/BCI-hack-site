@@ -1,12 +1,12 @@
 <div class="site-header" data-ng-controller="HeaderController">
 	<a href="/#!/" class="nav-title"><span class="nav-title">BetterName</span></a>
 	<ul class="nav-items">
-		<a href="/#!/"><li class="nav-item">Introduction</li></a>
+		<a href="/#!/introduction"><li class="nav-item">Introduction</li></a>
 		<a href="/#!/visualisation"><li class="nav-item">Visualisations</li></a>
 		<a href="/#!/"><li class="nav-item">Games</li></a>
 		<a href="/#!/about"><li class="nav-item">About</li></a>
 	</ul>
-  <div class="nav-eeg nav-eeg-extended" ng-click="">
+  <div class="nav-eeg" ng-click="toggleEeg()" ng-class="{'nav-eeg-extended' : check}">
     <div class="nav-eeg-top">Connection</div>
     <div class="nav-eeg-bottom">
       <h5>EEG DATA</h5>
