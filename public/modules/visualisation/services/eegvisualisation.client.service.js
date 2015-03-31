@@ -7,16 +7,19 @@ angular.module('visualisation').factory('Eegvisualisation', ['p5',
 	    var socket = io.connect();
 
 	    p.setup = function() {
-	      var eegCanvas = p.createCanvas(600, 500);
-			  p.background(238);
+	      var eegCanvas = p.createCanvas(800, 500);
+			  p.background(128);
 		    socket.on('eeg', function(data) {
-		      console.log(data.eSense.attention);
+		      var attention = data.eSense.attention
+		      var meditation = data.eSense.meditation
+				  // p.background(128);
+		      p.noFill();
+		      p.stroke(255);
+		      p.strokeWeight(1);
+		      p.ellipse(0, 250, 12*attention,12*attention);
+		      p.stroke(0);
+		      p.ellipse(800, 250, 12*meditation,12*meditation);
 		    });
-	    };
-
-	    p.draw = function() {
-	      p.ellipse(x, p.height/2, x/3, x/3);
-			  x = x + 1;
 	    };
 	  };
 	}
