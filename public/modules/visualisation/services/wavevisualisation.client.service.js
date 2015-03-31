@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('visualisation').factory('eegVisualisation', ['p5',
+angular.module('visualisation').factory('waveVisualisation', ['p5',
 	function(p5) {
 		return function(p) {
 	    var socket = io.connect();
