@@ -1,3 +1,11 @@
+/*generic*/
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: 'DIN'
 }
@@ -9,6 +17,47 @@ h1 {
 p {
   font-family: 'Georgia'
 }
+
+/*nav*/
+.site-header {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  padding: 0px;
+  background: rgba(20,20,20,1);
+}
+.nav-title {
+  float: left;
+  font-size: 16px; 
+}
+.nav-items {
+  float: right;
+  margin-top: 15px;
+  text-align: center;
+  color: white;
+}
+.nav-item {
+  display:inline-block;
+  width: 90px;
+  font-size: 12px;
+  padding: 3px;
+  margin: 2px;
+  border: 1px solid #22223B;
+}
+.nav-item a {
+  text-decoration: none;
+}
+.nav-eeg {
+  display: inline-block;
+  float: right;
+  width: 300px;
+  background: #222;
+  height: 50px;
+  margin: 0;
+}
+
+
 .content {
 	margin-top: 50px;
 }
