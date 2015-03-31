@@ -3,11 +3,10 @@
 angular.module('visualisation').factory('Eegvisualisation', ['p5',
 	function(p5) {
 		return function(p) {
-	    var x = 0;
 	    var socket = io.connect();
 
 	    p.setup = function() {
-	      var eegCanvas = p.createCanvas(800, 500);
+	      var eegCanvas = p.createCanvas(window.innerWidth, window.innerHeight);
 			  p.background(128);
 		    socket.on('eeg', function(data) {
 		      var attention = data.eSense.attention
