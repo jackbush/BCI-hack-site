@@ -1,3 +1,6 @@
+// P5 wrapper for Angular
+// based on https://github.com/wxactly/angular-p5.js
+
 'use strict';
 
 ApplicationConfiguration.registerModule('angular-p5')
