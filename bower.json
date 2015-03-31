@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Web app component to a project working with brain computer interfaces and JS games.",
   "dependencies": {
-    "bootstrap": "~3",
     "angular": "~1.2",
     "angular-resource": "~1.2",
     "angular-mocks": "~1.2",

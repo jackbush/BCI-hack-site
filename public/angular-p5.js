@@ -1,3 +1,5 @@
+// DOCUMENTATION https://github.com/wxactly/angular-p5.js
+
 angular.module('angular-p5', [])
 .factory('p5', ['$window', function($window) {
   return $window.p5;
