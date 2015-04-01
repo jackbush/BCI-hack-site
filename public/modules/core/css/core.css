@@ -3,6 +3,9 @@
   box-sizing: border-box;
   font-family: 'DIN', sans-serif
 }
+a, a:active, a:focus {
+  outline: none !important;
+}
 body {
   padding: 0;
   margin: 0;
