@@ -2,6 +2,6 @@
 	<div class="introduction-block" ng-click="selectIntroduction(introduction.num);" ng-repeat="introduction in introductions" ng-class="{introcollapsed: introduction.num !== selectedIntroduction}">
 		<div sketch="{{introduction.sketch}}" class="eeg-feed-graph"></div>
 	  <h1>{{introduction.title}}</h1>
-		<h3>{{introduction.body}}</h3>
+		<h4>{{introduction.body}}</h4>
 	</div>
 </section>

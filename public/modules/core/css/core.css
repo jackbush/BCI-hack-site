@@ -13,7 +13,6 @@ body {
 }
 h1 {
   text-transform: uppercase;
-  border-bottom: 2px solid black;
   display: inline-block;
 }
 h2 a {
@@ -114,7 +113,7 @@ p {
 .full-page-background {
   width: 100%;
   height: 2000px;
-  background: #333;
+  background: rgb(20,24,39);
   z-index: -100;
 }
 .full-page-overlay {
@@ -153,9 +152,8 @@ p {
 }
 .introduction-block h1 {
   margin: 0;
-  border: none;
 }
-.introduction-block h3 {
+.introduction-block h4 {
   margin: 5px 0;
 }
 .introcollapsed {
