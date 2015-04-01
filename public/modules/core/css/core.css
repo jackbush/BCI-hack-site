@@ -2,6 +2,7 @@
 * {
   box-sizing: border-box;
   font-family: 'DIN', 'Cabin', sans-serif;
+  font-weight: normal;
 }
 a, a:active, a:focus {
   outline: none !important;
@@ -24,6 +25,7 @@ h2 a:hover {
 }
 h3, h4 {
   font-weight: normal;
+  line-height: 1.5;
 }
 .nav-eeg h5 {
   margin: 20px 0 5px 0;
@@ -64,7 +66,7 @@ h3, h4 {
 }
 .nav-items {
   float: left;
-  margin: 13px 0 0 150px;
+  margin: 13px 0 0 120px;
   text-align: center;
 }
 .nav-items a {
@@ -96,7 +98,7 @@ h3, h4 {
   transition: 0.3s;
 }
 .nav-eeg-extended {
-  height: 380px;
+  height: 382px;
 }
 .nav-eeg-top {
   width: 220px;
@@ -140,10 +142,10 @@ h3, h4 {
   padding-left: 48px;
 }
 .home-text {
-  padding: 15px 48px 20px 15px;
+  padding: 15px 36px 20px 15px;
   float: left;
   font-size: 26px;
-  width: 60%;
+  width: 55%;
 }
 .home-text a {
   color: white;
