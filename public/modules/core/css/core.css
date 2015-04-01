@@ -157,7 +157,6 @@ h3, h4 {
   width: 300px;
   background: #eee;
   transition: 0.3s;
-  cursor: pointer;
   z-index: 100;
 }
 .introduction-block h1 {
@@ -169,6 +168,7 @@ h3, h4 {
 .introcollapsed {
   height: 58px;
   overflow: hidden;
+  cursor: pointer;
 }
 /*ABOUT*/
 .site-about-block {
