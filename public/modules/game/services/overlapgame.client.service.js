@@ -1,14 +1,12 @@
 'use strict';
 
-angular.module('core').factory('introSketch', [
+angular.module('game').factory('overlapGame', [
 	function(p5) {
 		return function(p) {
 	    p.colorMode(p.RGBA, 255);
 	    var socket = io.connect();
 	    var p5height = window.innerHeight;
 	    var p5width = window.innerWidth;
-	    var white = p.color(255,255,255,255);
-	    var navy = p.color(20,24,39,255);
 
 	    p.setup = function() {
 	      p.createCanvas(p5width, p5height);
@@ -17,7 +15,6 @@ angular.module('core').factory('introSketch', [
 
 		  socket.on('eeg', function(data) {
 			  var attention = (data.eSense) ? data.eSense.attention : attention;
-			  var meditation = (data.eSense) ? data.eSense.meditation : meditation;
 			  p.draw = function() {
 				  p.background(255,255,255,20);
 				  p.fill(150,250,150,10);
