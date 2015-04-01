@@ -5,18 +5,33 @@
 }
 a, a:active, a:focus {
   outline: none !important;
+  color: black;
 }
 body {
   padding: 0;
   margin: 0;
 }
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'DIN'
-}
 h1 {
   text-transform: uppercase;
   border-bottom: 2px solid black;
   display: inline-block;
+}
+h2 a {
+  font-weight: normal;
+  text-decoration: none;
+}
+h2 a:hover {
+  border-bottom: 1px solid black;
+}
+h3, h4 {
+  font-weight: normal;
+}
+h5 {
+  margin: 20px 0 5px 0;
+}
+h6 {
+  margin: 1px;
+  font-weight: normal;
 }
 p {
   font-family: 'Georgia'
@@ -92,19 +107,12 @@ p {
 .nav-eeg-bottom {
   padding: 0 10px 10px 10px;
 }
-.nav-eeg h5 {
-  margin: 20px 0 5px 0;
-}
-.nav-eeg h6 {
-  margin: 1px;
-  font-weight: normal;
-}
 .content {
 	margin-top: 50px;
 }
 /*HOMEPAGE*/
 .site-home-block {
-  min-height: 500px;
+  min-height: 400px;
   margin-bottom: 5px;
   padding: 50px;
   background: #eee;
