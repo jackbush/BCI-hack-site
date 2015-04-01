@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HeaderController', ['$scope', 'socketFactory',
-  function($scope, socketFactory) {
+angular.module('core').controller('HeaderController', ['$scope', '$window', 'socketFactory',
+  function($scope, $window, socketFactory) {
     $scope.check = false;
     $scope.toggleEeg = function() {
         $scope.check = $scope.check === false ? true : false;
