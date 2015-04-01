@@ -1,20 +1,7 @@
 <section data-ng-controller="HomeController">
-	<div class="introduction-block">
-		<h1>Welcome</h1>
-		<h3>Below is a brief connection guide and two simple exercises to introduce you to the technology. Once you're feeling comfortable, use the navigation links above to click through to more complex games and visualisations. Using the full site requires an <a href="http://neurosky.com/biosensors/eeg-sensor/">EEG headset</a>.</h3>
-	</div>
-	<div class="introduction-block introduction-block-collapsed">
-		<h1>Connecting</h1>
-		<h3>To get started, plug in your headset and click the CONNECTION area in the top right corner. As soon as a link is established, streaming data will appear. This panel is available throughout the site.</h3>
-	</div>
-	<p5></p5>
-	<div class="introduction-block introduction-block-collapsed">
-		<h1>Focus</h1>
-		<h3>Control the size of the circle by focussing on it. See if you can get it to touch the edge of the canvas, and how long you can hold it at that size.</h3>
-	</div>
-	<p5></p5>
-	<div class="introduction-block introduction-block-collapsed">
-		<h1>Meditation</h1>
-		<h3>Calm your mind to slow the oscillation of the graph. Breathe deeply and see if you can get the visualisation to stop entirely.</h3>
+	<div class="introduction-block" ng-click="selectIntroduction(introduction.num);" ng-repeat="introduction in introductions" ng-class="{introcollapsed: introduction.num !== selectedIntroduction}">
+		<div sketch="{{introduction.sketch}}" class="eeg-feed-graph"></div>
+	  <h1>{{introduction.title}}</h1>
+		<h3>{{introduction.body}}</h3>
 	</div>
 </section>

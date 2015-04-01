@@ -148,13 +148,19 @@ p {
   padding: 10px 20px;
   width: 300px;
   background: #eee;
+  transition: 0.3s;
+  cursor: pointer;
 }
 .introduction-block h1 {
   margin: 0;
+  border: none;
 }
-.introduction-block-collapsed {
-  height: 64px;
-  overflow: scroll;
+.introduction-block h3 {
+  margin: 5px 0;
+}
+.introcollapsed {
+  height: 58px;
+  overflow: hidden;
 }
 /*WORKING*/
 .site-home-block {
