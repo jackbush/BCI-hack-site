@@ -1,16 +1,13 @@
 'use strict';
 
-angular.module('core').controller('HeaderController', ['$scope', 'socketFactory',
-  function($scope, socketFactory) {
-    $scope.check = false;
-    $scope.toggleEeg = function() {
-        $scope.check = $scope.check === false ? true : false;
-    };
+angular.module('game').controller('GamesController', ['$scope',
+	function($scope) {
     // FOR TESTING CONNECTION
     // var socket = io.connect();
     // socket.on('connect', function() {
     //   console.log('EEG SOCKET CONNECTED');
     // });
+    // _.contains(Object.keys(data), 'blinkStrength')
     socketFactory().on('eeg', function(data) {
       // console.log(data);
       $scope.eegBlink = data.blinkStrength;
@@ -26,5 +23,5 @@ angular.module('core').controller('HeaderController', ['$scope', 'socketFactory'
       $scope.eegHighGamma = data.eegPower.highGamma;
       $scope.eegSignal = (100 - (data.poorSignalLevel) / 2);
     });
-  }
+	}
 ]);

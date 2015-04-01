@@ -1,58 +1,27 @@
-<div class="container" data-ng-controller="HeaderController">
-	<div class="navbar-header">
-		<button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-		<a href="/#!/" class="navbar-brand">BCI SITE</a>
-	</div>
-	<nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
-		<ul class="nav navbar-nav" data-ng-if="menu.shouldRender(authentication.user);">
-			<li data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
-				<a ng-switch-when="dropdown" class="dropdown-toggle">
-					<span data-ng-bind="item.title"></span>
-					<b class="caret"></b>
-				</a>
-				<ul ng-switch-when="dropdown" class="dropdown-menu">
-					<li data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
-						<a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
-					</li>
-				</ul>
-				<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
-			</li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
-			<li ui-route="/signup" ng-class="{active: $uiRoute}">
-				<a href="/#!/signup">Sign Up</a>
-			</li>
-			<li class="divider-vertical"></li>
-			<li ui-route="/signin" ng-class="{active: $uiRoute}">
-				<a href="/#!/signin">Sign In</a>
-			</li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="/#!/settings/profile">Edit Profile</a>
-					</li>
-					<li>
-						<a href="/#!/settings/accounts">Manage Social Accounts</a>
-					</li>
-					<li data-ng-show="authentication.user.provider === 'local'">
-						<a href="/#!/settings/password">Change Password</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a href="/auth/signout">Signout</a>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</nav>
+<div class="site-header" data-ng-controller="HeaderController">
+	<a href="/#!/" class="nav-title"><span class="nav-title">BetterName</span></a>
+	<ul class="nav-items">
+		<a href="/#!/introduction"><li class="nav-item">Introduction</li></a>
+		<a href="/#!/visualisations"><li class="nav-item">Visualisations</li></a>
+		<a href="/#!/games"><li class="nav-item">Games</li></a>
+		<a href="/#!/about"><li class="nav-item">About</li></a>
+	</ul>
+  <div class="nav-eeg" ng-click="toggleEeg()" ng-class="{'nav-eeg-extended' : check}">
+    <div class="nav-eeg-top">Connection</div>
+    <div class="nav-eeg-bottom">
+      <h5>EEG DATA</h5>
+      <h6>SIGNAL: {{eegSignal ? eegSignal : '0'}}%</h6>
+      <h6>ATTENTION: {{eegAttention}}</h6>
+      <h6>MEDITATION: {{eegMeditation}}</h6>
+      <h6>DELTA: {{eegDelta}}</h6>
+      <h6>THETA: {{eegTheta}}</h6>
+      <h6>LOW ALPHA: {{eegLowAlpha}}</h6>
+      <h6>HIGH ALPHA: {{eegHighAlpha}}</h6>
+      <h6>LOW BETA: {{eegLowBeta}}</h6>
+      <h6>HIGH BETA: {{eegHighBeta}}</h6>
+      <h6>LOW GAMMA: {{eegLowGamma}}</h6>
+      <h6>HIGH GAMMA: {{eegHighGamma}}</h6>
+      <h6>BLINK: {{eegBlink}}</h6>
+    </div>
+  </div>
 </div>

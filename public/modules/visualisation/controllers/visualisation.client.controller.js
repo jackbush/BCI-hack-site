@@ -1,18 +1,15 @@
 'use strict';
 
-angular.module('visualisation').controller('VisualisationController', ['$scope',
-	function($scope) {
-
-    var socket = io();
-
+angular.module('visualisation').controller('VisualisationController', ['$scope', 'socketFactory',
+	function($scope, socketFactory) {
     // FOR TESTING CONNECTION
+    // var socket = io.connect();
     // socket.on('connect', function() {
     //   console.log('EEG SOCKET CONNECTED');
     // });
-
-    socket.on('eeg', function(data) {
-      console.log(data);
-      $scope.eegSignal = data.poorSignalLevel;
+    // _.contains(Object.keys(data), 'blinkStrength')
+    socketFactory().on('eeg', function(data) {
+      // console.log(data);
       $scope.eegBlink = data.blinkStrength;
       $scope.eegAttention = data.eSense.attention;
       $scope.eegMeditation = data.eSense.meditation;
@@ -24,8 +21,7 @@ angular.module('visualisation').controller('VisualisationController', ['$scope',
       $scope.eegHighBeta = data.eegPower.highBeta;
       $scope.eegLowGamma = data.eegPower.lowGamma;
       $scope.eegHighGamma = data.eegPower.highGamma;
-      // $scope.eegBlink = '0'
-      // $scope.eegSignal = 100 - (data.poorSignalLevel) / 2;
+      $scope.eegSignal = (100 - (data.poorSignalLevel) / 2);
     });
   }
 ]);
