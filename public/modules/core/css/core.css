@@ -111,6 +111,9 @@ p {
 }
 /*HOMEPAGE*/
 .full-page-background {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 2000px;
   background: rgb(20,24,39);
@@ -149,6 +152,7 @@ p {
   background: #eee;
   transition: 0.3s;
   cursor: pointer;
+  z-index: 100;
 }
 .introduction-block h1 {
   margin: 0;

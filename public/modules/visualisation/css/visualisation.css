@@ -3,7 +3,7 @@
   margin: 30px auto;
   padding-top: 70px;
 }
-.graphic-index h1 {
+.graphic-index h1, .graphic-index h4 {
   display: block;
   padding-left: 10px
 }
