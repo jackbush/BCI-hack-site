@@ -32,9 +32,6 @@ h3, h4 {
   margin: 1px;
   font-weight: normal;
 }
-p {
-  font-family: 'Georgia'
-}
 .full-page-sketch {
   position: absolute;
   top: 0;
@@ -60,14 +57,14 @@ p {
   top: 0;
   left: 0;
   padding: 10px;
-  width: 200px;
+  /*width: 200px;*/
   height: 50px;
-  background: rgba(20,20,20,1);
+  background: rgb(20,20,20);
   font-size: 24px;
 }
 .nav-items {
-  float: right;
-  margin: 13px 220px 0px 0px;
+  float: left;
+  margin: 13px 0 0 150px;
   text-align: center;
 }
 .nav-items a {
@@ -105,7 +102,8 @@ p {
   width: 220px;
   height: 50px;
   padding: 10px;
-  background: #282828;
+  color: #eee;
+  background: rgb(20,24,39);
   text-align: right;
   cursor: pointer;
 }
