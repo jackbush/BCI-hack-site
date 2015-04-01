@@ -142,6 +142,21 @@ p {
 .home-text a {
   color: white;
 }
+/*INTRODUCTION*/
+.introduction-block {
+  margin: 72px 0 -50px 22px;
+  padding: 10px 20px;
+  width: 300px;
+  background: #eee;
+}
+.introduction-block h1 {
+  margin: 0;
+}
+.introduction-block-collapsed {
+  height: 64px;
+  overflow: scroll;
+}
+/*WORKING*/
 .site-home-block {
   min-height: 400px;
   margin-bottom: 5px;
@@ -151,10 +166,4 @@ p {
 /*BAKED IN*/
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
-}
-.ng-invalid.ng-dirty {
-  border-color: #FA787E;
-}
-.ng-valid.ng-dirty {
-  border-color: #78FA89;
 }
