@@ -1,8 +1,7 @@
 /*GENERIC*/
 * {
   box-sizing: border-box;
-  font-family: 'DIN', sans-serif;
-  /*font-family: 'Cabin', sans-serif;*/
+  font-family: 'DIN', 'Cabin', sans-serif;
 }
 a, a:active, a:focus {
   outline: none !important;
