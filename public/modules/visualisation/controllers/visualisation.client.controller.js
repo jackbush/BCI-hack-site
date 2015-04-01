@@ -7,7 +7,6 @@ angular.module('visualisation').controller('VisualisationController', ['$scope',
     // socket.on('connect', function() {
     //   console.log('EEG SOCKET CONNECTED');
     // });
-    // _.contains(Object.keys(data), 'blinkStrength')
     socketFactory().on('eeg', function(data) {
       // console.log(data);
       $scope.eegBlink = data.blinkStrength;

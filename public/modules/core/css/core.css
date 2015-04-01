@@ -26,10 +26,10 @@ h2 a:hover {
 h3, h4 {
   font-weight: normal;
 }
-h5 {
+.nav-eeg h5 {
   margin: 20px 0 5px 0;
 }
-h6 {
+.nav-eeg h6 {
   margin: 1px;
   font-weight: normal;
 }

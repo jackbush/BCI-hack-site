@@ -9,8 +9,8 @@ angular.module('visualisation').factory('waveVisualisation', ['p5',
 	      p.createCanvas(window.innerWidth, window.innerHeight);
 			  p.background(128);
 		    socket.on('eeg', function(data) {
-		      var attention = data.eSense.attention
-		      var meditation = data.eSense.meditation
+		      var attention = data.eSense.attention;
+		      var meditation = data.eSense.meditation;
 				  // p.background(128);
 		      p.noFill();
 		      p.stroke(255);
