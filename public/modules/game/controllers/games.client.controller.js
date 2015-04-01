@@ -1,13 +1,12 @@
 'use strict';
 
-angular.module('game').controller('GamesController', ['$scope',
-	function($scope) {
+angular.module('game').controller('GamesController', ['$scope', 'socketFactory',
+	function($scope, socketFactory) {
     // FOR TESTING CONNECTION
     // var socket = io.connect();
     // socket.on('connect', function() {
     //   console.log('EEG SOCKET CONNECTED');
     // });
-    // _.contains(Object.keys(data), 'blinkStrength')
     socketFactory().on('eeg', function(data) {
       // console.log(data);
       $scope.eegBlink = data.blinkStrength;
