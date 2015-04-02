@@ -12,7 +12,7 @@ angular.module('visualisation').factory('waveVisualisation', ['p5',
 
 	    p.setup = function() {
 	      p.createCanvas(p5width, p5height);
-			  p.background(250,250,250);
+			  p.background(240,240,240);
 	    };
 
 		  socket.on('eeg', function(data) {
@@ -23,21 +23,21 @@ angular.module('visualisation').factory('waveVisualisation', ['p5',
 	      var waveCorrection = 1000;
 
 	      var eegDelta = (data) ? ((data.eegPower.delta+1)/waveCorrection) : 0;
-	      var cDelta = color(42,161,152);
+	      var cDelta = p.color(42,161,152);
 	      var eegTheta = (data) ? ((data.eegPower.theta+1)/waveCorrection) : 0;
-	      var cTheta = color(211,54,130);
+	      var cTheta = p.color(211,54,130);
 	      var eegLowAlpha = (data) ? ((data.eegPower.lowAlpha+1)/waveCorrection) : 0;
-	      var cLowAlpha = color(211,1,2);
+	      var cLowAlpha = p.color(211,1,2);
 	      var eegHighAlpha = (data) ? ((data.eegPower.highAlpha+1)/waveCorrection) : 0;
-	      var cHighAlpha = color(203,75,22);
+	      var cHighAlpha = p.color(203,75,22);
 	      var eegLowBeta = (data) ? ((data.eegPower.lowBeta+1)/waveCorrection) : 0;
-	      var cLowBeta = color(38,139,210);
+	      var cLowBeta = p.color(38,139,210);
 	      var eegHighBeta = (data) ? ((data.eegPower.highBeta+1)/waveCorrection) : 0;
-	      var cHighBeta = color(131,148,150);
+	      var cHighBeta = p.color(131,148,150);
 	      var eegLowGamma = (data) ? ((data.eegPower.lowGamma+1)/waveCorrection) : 0;
-	      var cLowGamma = color(133,153,0);
+	      var cLowGamma = p.color(133,153,0);
 	      var eegHighGamma = (data) ? ((data.eegPower.highGamma+1)/waveCorrection) : 0;
-	      var cHighGamma = color(88,110,117);
+	      var cHighGamma = p.color(88,110,117);
 
 			  p.draw = function() {
 			  	//delta
@@ -82,5 +82,4 @@ angular.module('visualisation').factory('waveVisualisation', ['p5',
 			});
 	  };
 	}
-]);
 ]);
