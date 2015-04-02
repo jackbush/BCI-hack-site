@@ -7,8 +7,6 @@ angular.module('core').factory('introSketch', [
 	    var socket = io.connect();
 	    var p5height = window.innerHeight;
 	    var p5width = window.innerWidth;
-	    var white = p.color(255,255,255,255);
-	    var navy = p.color(20,24,39,255);
 
 	    p.setup = function() {
 	      p.createCanvas(p5width, p5height);
@@ -17,11 +15,10 @@ angular.module('core').factory('introSketch', [
 
 		  socket.on('eeg', function(data) {
 			  var attention = (data.eSense) ? data.eSense.attention : attention;
-			  var meditation = (data.eSense) ? data.eSense.meditation : meditation;
+			  var meditation = (data.eSense) ? data.eSense.meditation : 60;
 			  var d = 0.8*p5height;
-			  var meditationRange = (meditation) ? (meditation+1)/2-50 : 24;
-			  var testAttR = Math.random() * 15
-			  var testMedR = 40;
+			  var meditationRange = meditation/2;
+			  var testAttR = Math.random() * 15;
 			  p.draw = function() {
 				  p.background(255,255,255,20);
 				  p.fill(70,250,180,3);
@@ -36,11 +33,11 @@ angular.module('core').factory('introSketch', [
 					  p.ellipse(p5width/2-(200-2*attention), p5height/2+25, d-meditationRange*Math.random(), d+meditationRange*Math.random());
 					} else {
 					  p.ellipse(p5width/2+(200-testAttR), p5height/2+25, d, d);
-					  p.ellipse(p5width/2+(200-testAttR), p5height/2+25, d+testMedR*Math.random(), d-testMedR*Math.random());
-					  p.ellipse(p5width/2+(200-testAttR), p5height/2+25, d-testMedR*Math.random(), d+testMedR*Math.random());
+					  p.ellipse(p5width/2+(200-testAttR), p5height/2+25, d+meditationRange*Math.random(), d-meditationRange*Math.random());
+					  p.ellipse(p5width/2+(200-testAttR), p5height/2+25, d-meditationRange*Math.random(), d+meditationRange*Math.random());
 					  p.ellipse(p5width/2-(200-testAttR), p5height/2+25, d, d);
-					  p.ellipse(p5width/2-(200-testAttR), p5height/2+25, d+testMedR*Math.random(), d-testMedR*Math.random());
-					  p.ellipse(p5width/2-(200-testAttR), p5height/2+25, d-testMedR*Math.random(), d+testMedR*Math.random());
+					  p.ellipse(p5width/2-(200-testAttR), p5height/2+25, d+meditationRange*Math.random(), d-meditationRange*Math.random());
+					  p.ellipse(p5width/2-(200-testAttR), p5height/2+25, d-meditationRange*Math.random(), d+meditationRange*Math.random());
 					}
 		    };
 			});
