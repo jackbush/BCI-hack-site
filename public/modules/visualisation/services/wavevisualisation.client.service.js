@@ -73,6 +73,9 @@ angular.module('visualisation').factory('waveVisualisation', ['p5',
 				  ypos = ypos + eegHighGamma;
 				  //line return
 				  xpos = xpos + 1;
+				  if(xpos>p5width) {
+				  	xpos = 0;
+				  }
 				  ypos = 0;
 		    };
 			});
