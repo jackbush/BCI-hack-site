@@ -7,10 +7,16 @@ angular.module('game').controller('GamesController', ['$scope', 'socketFactory',
     // socket.on('connect', function() {
     //   console.log('EEG SOCKET CONNECTED');
     // });
+    $scope.focusScore = 0;
     socketFactory().on('eeg', function(data) {
       // console.log(data);
       $scope.eegBlink = data.blinkStrength;
       $scope.eegAttention = data.eSense.attention;
+        if(eegAttention === 100) {
+          $scope.focusScore = focusScore + 1;
+        } else {
+          $scope.focusScore = 0; 
+        };
       $scope.eegMeditation = data.eSense.meditation;
       $scope.eegDelta = data.eegPower.delta;
       $scope.eegTheta = data.eegPower.theta;
