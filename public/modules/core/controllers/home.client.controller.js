@@ -14,11 +14,11 @@ angular.module('core').controller('HomeController', ['$scope', 'socketFactory',
     },{
       num: '3',
       title: 'Focus',
-      body: 'Control the size of the circle by focussing on it. See if you can get it to touch the edge of the canvas, and how long you can hold it at that size.'
+      body: 'Bring the circles together by focussing on them. See if you can get them to overlap perfectly, and how long you can hold it for.'
     },{
       num: '4',
       title: 'Meditation',
-      body: 'Calm your mind to slow the oscillation of the graph. Breathe deeply and see if you can get the visualisation to stop entirely.'
+      body: 'Calm your mind to slow the oscillation of the outlines. Breathe deeply and see if you can get them to stop entirely.'
     }];
     $scope.selectIntroduction = function(introduction) {
       $scope.selectedIntroduction = introduction;

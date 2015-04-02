@@ -2,6 +2,7 @@
 * {
   box-sizing: border-box;
   font-family: 'DIN', 'Cabin', sans-serif;
+  font-weight: normal;
 }
 a, a:active, a:focus {
   outline: none !important;
@@ -10,6 +11,7 @@ a, a:active, a:focus {
 body {
   padding: 0;
   margin: 0;
+  background: rgb(250,250,250);
 }
 h1 {
   text-transform: uppercase;
@@ -24,6 +26,7 @@ h2 a:hover {
 }
 h3, h4 {
   font-weight: normal;
+  line-height: 1.5;
 }
 .nav-eeg h5 {
   margin: 20px 0 5px 0;
@@ -64,7 +67,7 @@ h3, h4 {
 }
 .nav-items {
   float: left;
-  margin: 13px 0 0 150px;
+  margin: 13px 0 0 120px;
   text-align: center;
 }
 .nav-items a {
@@ -96,7 +99,7 @@ h3, h4 {
   transition: 0.3s;
 }
 .nav-eeg-extended {
-  height: 380px;
+  height: 382px;
 }
 .nav-eeg-top {
   width: 220px;
@@ -126,7 +129,7 @@ h3, h4 {
 .full-page-overlay {
   width: 100%;
   position: fixed;
-  color: white;
+  color: rgb(20,24,39);
   bottom: 0;
   left: 0;
   z-index: 100;
@@ -140,13 +143,10 @@ h3, h4 {
   padding-left: 48px;
 }
 .home-text {
-  padding: 15px 48px 20px 15px;
+  padding: 15px 36px 20px 15px;
   float: left;
   font-size: 26px;
-  width: 60%;
-}
-.home-text a {
-  color: white;
+  width: 55%;
 }
 /*INTRODUCTION*/
 .introduction-block {
@@ -155,7 +155,6 @@ h3, h4 {
   width: 300px;
   background: #eee;
   transition: 0.3s;
-  cursor: pointer;
   z-index: 100;
 }
 .introduction-block h1 {
@@ -167,6 +166,7 @@ h3, h4 {
 .introcollapsed {
   height: 58px;
   overflow: hidden;
+  cursor: pointer;
 }
 /*ABOUT*/
 .site-about-block {
@@ -181,6 +181,10 @@ h3, h4 {
 }
 .site-about-block h1 {
   margin-top: 20px;
+  margin-bottom: 0;
+}
+.site-about-block h4 {
+  margin-top: 8px;
   margin-bottom: 0;
 }
 .about-bottom {
