@@ -9,6 +9,9 @@ angular.module('game').config(['$stateProvider',
     .state('overlap', {
       url: '/games/overlap',
       templateUrl: 'modules/game/views/overlap.client.view.html'
+    }).state('outline', {
+      url: '/games/outline',
+      templateUrl: 'modules/game/views/outline.client.view.html'
     });
 	}
 ]);

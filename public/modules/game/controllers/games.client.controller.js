@@ -6,6 +6,9 @@ angular.module('game').controller('GamesController', ['$scope', 'socketFactory',
     $scope.games = [{
       title: 'OVERLAP',
       path: '/#!/games/overlap'
+    },{
+      title: 'OUTLINE',
+      path: '/#!/games/outline'
     }];
     //score logic
     $scope.focusScore = 0;

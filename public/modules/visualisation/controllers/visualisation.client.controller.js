@@ -4,9 +4,6 @@ angular.module('visualisation').controller('VisualisationController', ['$scope',
 	function($scope, socketFactory) {
     // index
     $scope.visualisations = [{
-      title: 'INTRODUCTION',
-      path: '/#!/visualisations/intro'
-    },{
       title: 'CIRCLES',
       path: '/#!/visualisations/circles'
     },{
