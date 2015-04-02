@@ -1,19 +1,9 @@
 <section data-ng-controller="VisualisationController">
   <div class="graphic-index">
     <h1>Visualisations</h1>
-    <a href="/#!/visualisations/intro">
+    <a ng-repeat="visualisation in visualisations" href="{{visualisation.path}}">
       <div class="graphic-each">
-        <h2>INTRODUCTION</h2>
-      </div>
-    </a>
-    <a href="/#!/visualisations/circles">
-      <div class="graphic-each">
-        <h2>CIRCLES</h2>
-      </div>
-    </a>
-    <a href="/#!/visualisations/waves">
-      <div class="graphic-each">
-        <h2>WAVES</h2>
+        <h2>{{visualisation.title}}</h2>
       </div>
     </a>
     <div class="graphic-each">

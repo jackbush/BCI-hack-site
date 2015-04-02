@@ -1,9 +1,9 @@
 <section data-ng-controller="GamesController">
   <div class="graphic-index">
   	<h1>Games</h1>
-    <a href="/#!/games/overlap">
+    <a ng-repeat="game in games" href="{{game.path}}">
       <div class="graphic-each">
-        <h2>OVERLAP</h2>
+        <h2>{{game.title}}</h2>
       </div>
     </a>
     <div class="graphic-each">
