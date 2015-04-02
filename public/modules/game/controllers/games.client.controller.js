@@ -2,12 +2,8 @@
 
 angular.module('game').controller('GamesController', ['$scope', 'socketFactory',
 	function($scope, socketFactory) {
-    // FOR TESTING CONNECTION
-    // var socket = io.connect();
-    // socket.on('connect', function() {
-    //   console.log('EEG SOCKET CONNECTED');
-    // });
     $scope.focusScore = 0;
+    $scope.meditationScore = 0;
     socketFactory().on('eeg', function(data) {
       // console.log(data);
       $scope.eegBlink = data.blinkStrength;
@@ -18,6 +14,11 @@ angular.module('game').controller('GamesController', ['$scope', 'socketFactory',
           $scope.focusScore = 0; 
         };
       $scope.eegMeditation = data.eSense.meditation;
+        if(eegMeditation === 100) {
+          $scope.meditationScore = meditationScore + 1;
+        } else {
+          $scope.meditationScore = 0; 
+        };
       $scope.eegDelta = data.eegPower.delta;
       $scope.eegTheta = data.eegPower.theta;
       $scope.eegLowAlpha = data.eegPower.lowAlpha;
