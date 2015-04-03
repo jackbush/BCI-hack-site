@@ -3,23 +3,83 @@
 angular.module('visualisation').factory('waveVisualisation', ['p5',
 	function(p5) {
 		return function(p) {
+	    p.colorMode(p.RGB, 255);
 	    var socket = io.connect();
+	    var p5height = window.innerHeight;
+	    var p5width = window.innerWidth;
+	    var xpos = 0;
+	    var ypos = 0;
 
 	    p.setup = function() {
-	      p.createCanvas(window.innerWidth, window.innerHeight);
-			  p.background(128);
-		    socket.on('eeg', function(data) {
-		      var attention = data.eSense.attention;
-		      var meditation = data.eSense.meditation;
-				  // p.background(128);
-		      p.noFill();
-		      p.stroke(255);
-		      p.strokeWeight(1);
-		      p.ellipse(0, window.innerHeight/2, 18*attention,18*attention);
-		      p.stroke(0);
-		      p.ellipse(window.innerWidth, window.innerHeight/2, 18*meditation,18*meditation);
-		    });
+	      p.createCanvas(p5width, p5height);
+			  p.background(240,240,240);
 	    };
+
+		  socket.on('eeg', function(data) {
+			  var eegBlink = (data) ? (data.blinkStrength) : 0;
+	      var eegAttention = (data) ? (data.eSense.attention) : 0;
+	      var eegMeditation = (data) ? (data.eSense.meditation) : 0;
+	      var eegSignal = (100 - (data.poorSignalLevel) / 2);
+	      var waveCorrection = 1000;
+
+	      var eegDelta = (data) ? ((data.eegPower.delta+1)/waveCorrection) : 0;
+	      var cDelta = p.color(42,161,152);
+	      var eegTheta = (data) ? ((data.eegPower.theta+1)/waveCorrection) : 0;
+	      var cTheta = p.color(211,54,130);
+	      var eegLowAlpha = (data) ? ((data.eegPower.lowAlpha+1)/waveCorrection) : 0;
+	      var cLowAlpha = p.color(211,1,2);
+	      var eegHighAlpha = (data) ? ((data.eegPower.highAlpha+1)/waveCorrection) : 0;
+	      var cHighAlpha = p.color(203,75,22);
+	      var eegLowBeta = (data) ? ((data.eegPower.lowBeta+1)/waveCorrection) : 0;
+	      var cLowBeta = p.color(38,139,210);
+	      var eegHighBeta = (data) ? ((data.eegPower.highBeta+1)/waveCorrection) : 0;
+	      var cHighBeta = p.color(131,148,150);
+	      var eegLowGamma = (data) ? ((data.eegPower.lowGamma+1)/waveCorrection) : 0;
+	      var cLowGamma = p.color(133,153,0);
+	      var eegHighGamma = (data) ? ((data.eegPower.highGamma+1)/waveCorrection) : 0;
+	      var cHighGamma = p.color(88,110,117);
+
+			  p.draw = function() {
+			  	//delta
+				  p.stroke(cDelta);
+				  p.line(xpos, ypos, xpos, eegDelta);
+				  ypos = ypos + eegDelta;
+				  //theta
+				  p.stroke(cTheta);
+				  p.line(xpos, ypos, xpos, ypos+eegTheta);
+				  ypos = ypos + eegTheta;
+				  //lo-alpha
+				  p.stroke(cLowAlpha);
+				  p.line(xpos, ypos, xpos, ypos+eegLowAlpha);
+				  ypos = ypos + eegLowAlpha;
+				  //hi-alpha
+				  p.stroke(cHighAlpha);
+				  p.line(xpos, ypos, xpos, ypos+eegHighAlpha);
+				  ypos = ypos + eegHighAlpha;
+				  //lo-beta
+				  p.stroke(cLowBeta);
+				  p.line(xpos, ypos, xpos, ypos+eegLowBeta);
+				  ypos = ypos + eegLowBeta;
+				  //hi-beta
+				  p.stroke(cHighBeta);
+				  p.line(xpos, ypos, xpos, ypos+eegHighBeta);
+				  ypos = ypos + eegHighBeta;
+				  //lo-gamma
+				  p.stroke(cLowGamma);
+				  p.line(xpos, ypos, xpos, ypos+eegLowGamma);
+				  ypos = ypos + eegLowGamma;
+				  //hi-gamma
+				  p.stroke(cHighGamma);
+				  p.line(xpos, ypos, xpos, ypos+eegHighGamma);
+				  ypos = ypos + eegHighGamma;
+				  //line return
+				  xpos = xpos + 1;
+				  if(xpos>p5width) {
+				  	xpos = 0;
+				  }
+				  ypos = 0;
+		    };
+			});
 	  };
 	}
 ]);
