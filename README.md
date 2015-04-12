@@ -21,4 +21,4 @@ $ grunt
 => MEAN.JS application started on port 3000
 ```
 
-### [ON HEROKU](https://floating-mesa-2902.herokuapp.com/#!/)
+### [ON HEROKU](http://mindflow.jackbush.co)
