@@ -11,6 +11,15 @@ angular.module('core').controller('HeaderController', ['$scope', '$window', 'soc
     // socket.on('connect', function() {
     //   console.log('EEG SOCKET CONNECTED');
     // });
+    // try {
+    //   var socket = io.connect('http://localhost:9876');
+    // } catch {
+    //   var socket = io.connect();
+    // }
+    // // var socket = io.connect('http://localhost:9876');
+    // socket.on('eeg', function(data) {
+    //   console.log(data);
+    // });
     socketFactory().on('eeg', function(data) {
       // console.log(data);
       $scope.eegBlink = (data) ? (data.blinkStrength) : '';
