@@ -3,6 +3,11 @@
 angular.module('visualisation').factory('waveVisualisation', ['p5',
 	function(p5) {
 		return function(p) {
+			try {
+	      var socket = io.connect('http://localhost:9876');
+	    } catch(e) {
+	      var socket = io.connect();
+	    };
 	    p.colorMode(p.RGB, 255);
 	    var socket = io.connect();
 	    var p5height = window.innerHeight;

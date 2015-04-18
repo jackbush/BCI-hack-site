@@ -6,13 +6,14 @@ angular.module('core').controller('HeaderController', ['$scope', '$window', 'soc
     $scope.toggleEeg = function() {
         $scope.check = $scope.check === false ? true : false;
     };
-    // FOR TESTING CONNECTION
-    // var socket = io.connect();
-    // socket.on('connect', function() {
-    //   console.log('EEG SOCKET CONNECTED');
-    // });
-    socketFactory().on('eeg', function(data) {
-      // console.log(data);
+
+    try {
+      var socket = io.connect('http://localhost:9876');
+    } catch(e) {
+      var socket = io.connect();
+    };
+    socket.on('eeg', function(data) {
+      console.log(data);
       $scope.eegBlink = (data) ? (data.blinkStrength) : '';
       $scope.eegAttention = (data) ? (data.eSense.attention) : '';
       $scope.eegMeditation = (data) ? (data.eSense.meditation) : '';
