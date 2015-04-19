@@ -4,7 +4,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$window', 'soc
   function($scope, $window, socketFactory) {
     $scope.check = false;
     $scope.toggleEeg = function() {
-        $scope.check = $scope.check === false ? true : false;
+      $scope.check = $scope.check === false ? true : false;
     };
 
     try {
