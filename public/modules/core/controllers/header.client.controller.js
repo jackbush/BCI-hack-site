@@ -6,10 +6,9 @@ angular.module('core').controller('HeaderController', ['$scope', '$window', 'soc
     $scope.toggleEeg = function() {
       $scope.check = $scope.check === false ? true : false;
     };
-    
+
     var socket = io.connect('http://localhost:9876');
     socket.on('eeg', function(data) {
-      console.log(data);
       $scope.$apply(function() {
         $scope.eegBlink = (data) ? (data.blinkStrength) : '';
         $scope.eegAttention = (data) ? (data.eSense.attention) : '';
