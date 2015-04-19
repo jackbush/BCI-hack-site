@@ -88,13 +88,14 @@ angular.module('core').controller('HeaderController', ['$scope', '$window', 'soc
     $scope.toggleEeg = function() {
         $scope.check = $scope.check === false ? true : false;
     };
-    // FOR TESTING CONNECTION
-    // var socket = io.connect();
-    // socket.on('connect', function() {
-    //   console.log('EEG SOCKET CONNECTED');
-    // });
-    socketFactory().on('eeg', function(data) {
-      // console.log(data);
+
+    try {
+      var socket = io.connect('http://localhost:9876');
+    } catch(e) {
+      var socket = io.connect();
+    };
+    socket.on('eeg', function(data) {
+      console.log(data);
       $scope.eegBlink = (data) ? (data.blinkStrength) : '';
       $scope.eegAttention = (data) ? (data.eSense.attention) : '';
       $scope.eegMeditation = (data) ? (data.eSense.meditation) : '';
@@ -403,8 +404,12 @@ angular.module('game').controller('GamesController', ['$scope', 'socketFactory',
 angular.module('game').factory('outlineGame', [
 	function(p5) {
 		return function(p) {
+			try {
+	      var socket = io.connect('http://localhost:9876');
+	    } catch(e) {
+	      var socket = io.connect();
+	    };
 	    p.colorMode(p.RGBA, 255);
-	    var socket = io.connect();
 	    var p5height = window.innerHeight;
 	    var p5width = window.innerWidth;
 
@@ -436,6 +441,11 @@ angular.module('game').factory('outlineGame', [
 angular.module('game').factory('overlapGame', [
 	function(p5) {
 		return function(p) {
+			try {
+	      var socket = io.connect('http://localhost:9876');
+	    } catch(e) {
+	      var socket = io.connect();
+	    };
 	    p.colorMode(p.RGBA, 255);
 	    var socket = io.connect();
 	    var p5height = window.innerHeight;
@@ -749,6 +759,11 @@ angular.module('visualisation').controller('VisualisationController', ['$scope',
 angular.module('visualisation').factory('circleVisualisation', ['p5',
 	function(p5) {
 		return function(p) {
+			try {
+	      var socket = io.connect('http://localhost:9876');
+	    } catch(e) {
+	      var socket = io.connect();
+	    };
 	    p.colorMode(p.RGBA, 255);
 	    var socket = io.connect();
 	    var p5height = window.innerHeight;
@@ -800,6 +815,11 @@ angular.module('visualisation').factory('Introvisualisation', [
 angular.module('visualisation').factory('waveVisualisation', ['p5',
 	function(p5) {
 		return function(p) {
+			try {
+	      var socket = io.connect('http://localhost:9876');
+	    } catch(e) {
+	      var socket = io.connect();
+	    };
 	    p.colorMode(p.RGB, 255);
 	    var socket = io.connect();
 	    var p5height = window.innerHeight;
