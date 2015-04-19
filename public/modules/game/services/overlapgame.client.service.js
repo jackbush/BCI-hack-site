@@ -23,7 +23,7 @@ angular.module('game').factory('overlapGame', [
 			  var d = 0.8*p5height;
 			  p.draw = function() {
 				  p.background(255,255,255,20);
-				  p.fill(70,250,180,10);
+				  p.fill(61,216,235,3);
 				  p.noStroke();
 
 				  p.ellipseMode(p.CENTER);
