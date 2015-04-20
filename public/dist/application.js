@@ -450,7 +450,6 @@ angular.module('game').factory('overlapGame', [
 	      var socket = io.connect();
 	    };
 	    p.colorMode(p.RGBA, 255);
-	    var socket = io.connect();
 	    var p5height = window.innerHeight;
 	    var p5width = window.innerWidth;
 
@@ -768,7 +767,6 @@ angular.module('visualisation').factory('circleVisualisation', ['p5',
 	      var socket = io.connect();
 	    };
 	    p.colorMode(p.RGBA, 255);
-	    var socket = io.connect();
 	    var p5height = window.innerHeight;
 	    var p5width = window.innerWidth;
 
