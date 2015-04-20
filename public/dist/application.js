@@ -465,11 +465,11 @@ angular.module('game').factory('outlineGame', [
 	    
 		  socket.on('eeg', function(data) {
 			  var meditation = (data.eSense) ? data.eSense.meditation : 60;
-			  var d = 0.8*p5height;
-			  var meditationRange = 50-meditation/2;
+			  var d = 0.75*p5height;
+			  var meditationRange = (50-meditation/2)*1.5;
 			  p.draw = function() {
-				  p.background(255,255,255,20);
-				  p.fill(61,216,235,3);
+				  p.background(255,255,255,10);
+				  p.fill(37,91,149,3)
 				  p.stroke(12,35,64,30);
 
 				  p.ellipseMode(p.CENTER);
@@ -492,6 +492,8 @@ angular.module('game').factory('overlapGame', [
 	      var socket = io.connect();
 	    };
 	    p.colorMode(p.RGBA, 255);
+	    p.ellipseMode(p.CENTER);
+	    p.noStroke();
 	    var p5height = window.innerHeight;
 	    var p5width = window.innerWidth;
 
@@ -505,11 +507,11 @@ angular.module('game').factory('overlapGame', [
 			  var d = 0.8*p5height;
 			  p.draw = function() {
 				  p.background(255,255,255,20);
-				  p.fill(61,216,235,3);
-				  p.noStroke();
 
-				  p.ellipseMode(p.CENTER);
+				  p.fill(14,250,220,36);
 				  p.ellipse(p5width/2+(200-2*attention), p5height/2+25, d, d);
+
+				  p.fill(250,53,14,36);
 				  p.ellipse(p5width/2-(200-2*attention), p5height/2+25, d, d);
 		    };
 			});
