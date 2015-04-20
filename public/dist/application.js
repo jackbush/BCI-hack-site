@@ -140,8 +140,12 @@ angular.module('core').controller('HomeController', ['$scope', 'socketFactory',
 angular.module('core').factory('introSketch', [
 	function(p5) {
 		return function(p) {
+			try {
+	      var socket = io.connect('http://localhost:9876');
+	    } catch(e) {
+	      var socket = io.connect();
+	    };
 	    p.colorMode(p.RGBA, 255);
-	    var socket = io.connect();
 	    var p5height = window.innerHeight;
 	    var p5width = window.innerWidth;
 

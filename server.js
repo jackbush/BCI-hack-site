@@ -20,8 +20,7 @@ var db = mongoose.connect(config.db, function(err) {
 // init express application
 var app = require('./config/express')(db);
 
-// init socket
-// THIS IS A DEMO BRANCH. FOR EEG INJECTION, CHECK OUT ANY OTHER BRANCH.
+// init backup socket -- needed to drive sketches when there's no eeg feed
 var io = app.get('socketio');
 io.on('connect', function(socket) {
   setInterval(function() { 
