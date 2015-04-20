@@ -2,6 +2,6 @@
   <p5 sketch="introSketch" class="full-page-sketch"></p5>
 	<div class="introduction-block" ng-click="selectIntroduction(introduction.num);" ng-repeat="introduction in introductions" ng-class="{introcollapsed: introduction.num !== selectedIntroduction}">
 	  <h1>{{introduction.title}}</h1>
-		<h4>{{introduction.body}}</h4>
+		<h4>{{introduction.body}} <a href="{{introduction.link}}">{{introduction.link_text}}</a>.</h4>
 	</div>
 </section>
