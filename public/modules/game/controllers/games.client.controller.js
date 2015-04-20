@@ -4,10 +4,10 @@ angular.module('game').controller('GamesController', ['$scope', 'socketFactory',
 	function($scope, socketFactory) {
     //index
     $scope.games = [{
-      title: 'OVERLAP',
+      title: 'FOCUS',
       path: '/#!/games/overlap'
     },{
-      title: 'OUTLINE',
+      title: 'MEDITATE',
       path: '/#!/games/outline'
     }];
     //score logic
