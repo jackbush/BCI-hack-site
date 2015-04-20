@@ -2,8 +2,8 @@
 angular.module('visualisation').config(['$stateProvider',
 	function($stateProvider) {
 		$stateProvider
-    .state('visualisations', {
-			url: '/visualisations',
+    .state('visualisation', {
+			url: '/visualisation',
 			templateUrl: 'modules/visualisation/views/visualisation.client.view.html'
 		})
     .state('circles', {
