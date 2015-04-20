@@ -29,9 +29,6 @@ io.on('connect', function(socket) {
   }, 500);
 });
 
-// Bootstrap passport config
-require('./config/passport')();
-
 // Start the app by listening on <port>
 app.get('server').listen(config.port);
 
