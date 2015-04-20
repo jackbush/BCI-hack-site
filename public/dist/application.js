@@ -116,24 +116,68 @@ angular.module('core').controller('HomeController', ['$scope', 'socketFactory',
     $scope.introductions = [{
       num: '1',
       title: 'Welcome',
-      body: 'Below is a brief connection guide and two simple exercises to introduce you to the technology. Once you feel comfortable, use the navigation links above to click through to more complex games and visualisations. Using the full site requires an EEG headset.'
+      body: 'Below is a brief connection guide and two simple exercises to introduce you to the technology. Once you feel comfortable, use the navigation links above to click through to more complex games and visualisations.',
+      link: '/#!/about',
+      link_text: 'Learn more'
     },{
       num: '2',
-      title: 'Connecting',
-      body: 'To get started, plug in your headset and click the CONNECTION area in the top right corner. As soon as a link is established, streaming data will appear. This panel is available throughout the site.'
+      title: 'Installation',
+      body: 'Using this site requires an EEG headset. All Neurosky products are currently supported, when using the plugin available ',
+      link: 'https://github.com/jackbush/neurosky-data-server',
+      link_text: 'here'
     },{
       num: '3',
-      title: 'Focus',
-      body: 'Bring the circles together by focussing on them. See if you can get them to overlap perfectly, and how long you can hold it for.'
+      title: 'Connecting',
+      body: 'To get started, plug in your headset and click the CONNECTION area in the top right corner. As soon as a link is established, streaming data will appear. This panel is available throughout the site'
     },{
       num: '4',
+      title: 'Focus',
+      body: 'Bring the circles together by focussing on them. See if you can get them to overlap perfectly, and how long you can hold it for'
+    },{
+      num: '5',
       title: 'Meditation',
-      body: 'Calm your mind to slow the oscillation of the outlines. Breathe deeply and see if you can get them to stop entirely.'
+      body: 'Calm your mind to slow the oscillation of the outlines. Breathe deeply and see if you can get them to stop entirely'
     }];
     $scope.selectIntroduction = function(introduction) {
       $scope.selectedIntroduction = introduction;
     };
   }
+]);
+'use strict';
+
+angular.module('core').factory('homeSketch', [
+	function(p5) {
+		return function(p) {
+      var socket = io.connect();
+	    p.colorMode(p.RGBA, 255);
+	    var p5height = window.innerHeight;
+	    var p5width = window.innerWidth;
+
+	    p.setup = function() {
+	      p.createCanvas(p5width, p5height);
+			  p.background(250,250,250,255);
+	    };
+
+		  socket.on('eeg', function(data) {
+			  var meditation = 60;
+			  var d = 0.8*p5height;
+			  var meditationRange = 50-meditation/2;
+			  p.draw = function() {
+				  p.background(255,255,255,20);
+				  p.fill(61,216,235,3);
+				  p.stroke(12,35,64,30);
+				  p.ellipseMode(p.CENTER);
+					var testAttR = Math.random() * 15;
+				  p.ellipse(p5width/2+(200-testAttR), p5height/2+25, d, d);
+				  p.ellipse(p5width/2+(200-testAttR), p5height/2+25, d+meditationRange*Math.random(), d-meditationRange*Math.random());
+				  p.ellipse(p5width/2+(200-testAttR), p5height/2+25, d-meditationRange*Math.random(), d+meditationRange*Math.random());
+				  p.ellipse(p5width/2-(200-testAttR), p5height/2+25, d, d);
+				  p.ellipse(p5width/2-(200-testAttR), p5height/2+25, d+meditationRange*Math.random(), d-meditationRange*Math.random());
+				  p.ellipse(p5width/2-(200-testAttR), p5height/2+25, d-meditationRange*Math.random(), d+meditationRange*Math.random());
+		    };
+			});
+	  };
+	}
 ]);
 'use strict';
 
@@ -156,9 +200,7 @@ angular.module('core').factory('introSketch', [
 
 		  socket.on('eeg', function(data) {
 			  var attention = (data.eSense) ? data.eSense.attention : attention;
-			  console.log(attention);
 			  var meditation = (data.eSense) ? data.eSense.meditation : 60;
-			  console.log(meditation);
 			  var d = 0.8*p5height;
 			  var meditationRange = 50-meditation/2;
 			  p.draw = function() {
