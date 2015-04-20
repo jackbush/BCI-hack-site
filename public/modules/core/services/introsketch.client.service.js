@@ -19,9 +19,7 @@ angular.module('core').factory('introSketch', [
 
 		  socket.on('eeg', function(data) {
 			  var attention = (data.eSense) ? data.eSense.attention : attention;
-			  console.log(attention);
 			  var meditation = (data.eSense) ? data.eSense.meditation : 60;
-			  console.log(meditation);
 			  var d = 0.8*p5height;
 			  var meditationRange = 50-meditation/2;
 			  p.draw = function() {
