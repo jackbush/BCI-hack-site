@@ -18,8 +18,8 @@ angular.module('core').factory('homeSketch', [
 			  var d = 0.8*p5height;
 			  var meditationRange = 50-meditation/2;
 			  p.draw = function() {
-				  p.background(255,255,255,20);
-				  p.fill(61,216,235,3);
+				  p.background(255,255,255,10);
+				  p.fill(64, 206, 255,3);
 				  p.stroke(12,35,64,30);
 				  p.ellipseMode(p.CENTER);
 					var testAttR = Math.random() * 15;
