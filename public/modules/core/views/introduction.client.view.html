@@ -1,5 +1,4 @@
 <section data-ng-controller="HomeController">
-  <!-- <div class="full-page-background"></div> -->
   <p5 sketch="introSketch" class="full-page-sketch"></p5>
 	<div class="introduction-block" ng-click="selectIntroduction(introduction.num);" ng-repeat="introduction in introductions" ng-class="{introcollapsed: introduction.num !== selectedIntroduction}">
 	  <h1>{{introduction.title}}</h1>
