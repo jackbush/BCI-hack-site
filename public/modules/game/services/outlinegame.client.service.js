@@ -18,11 +18,11 @@ angular.module('game').factory('outlineGame', [
 	    
 		  socket.on('eeg', function(data) {
 			  var meditation = (data.eSense) ? data.eSense.meditation : 60;
-			  var d = 0.8*p5height;
-			  var meditationRange = 50-meditation/2;
+			  var d = 0.75*p5height;
+			  var meditationRange = (50-meditation/2)*1.5;
 			  p.draw = function() {
-				  p.background(255,255,255,20);
-				  p.fill(61,216,235,3);
+				  p.background(255,255,255,10);
+				  p.fill(37,91,149,3)
 				  p.stroke(12,35,64,30);
 
 				  p.ellipseMode(p.CENTER);
