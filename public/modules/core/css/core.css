@@ -1,27 +1,27 @@
 /*FONTS*/
 @font-face {
-  font-family: 'DIN';
-  src: url('/fonts/din_bold-webfont.eot');
-  src: url('/fonts/din_bold-webfont.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/din_bold-webfont.woff2') format('woff2'),
-       url('/fonts/din_bold-webfont.woff') format('woff'),
-       url('/fonts/din_bold-webfont.ttf') format('truetype'),
-       url('/fonts/din_bold-webfont.svg#dinbold') format('svg');
+  font-family: 'DINN';
+  src: url('fonts/din_bold-webfont.eot');
+  src: url('fonts/din_bold-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/din_bold-webfont.woff2') format('woff2'),
+       url('fonts/din_bold-webfont.woff') format('woff'),
+       url('fonts/din_bold-webfont.ttf') format('truetype'),
+       url('fonts/din_bold-webfont.svg#dinbold') format('svg');
+  font-weight: bold;
 }
 @font-face {
-  font-family: 'DIN';
-  src: url('/fonts/din-webfont.eot');
-  src: url('/fonts/din-webfont.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/din-webfont.woff2') format('woff2'),
-       url('/fonts/din-webfont.woff') format('woff'),
-       url('/fonts/din-webfont.ttf') format('truetype'),
-       url('/fonts/din-webfont.svg#dinregular') format('svg');
-  font-weight: bold;
+  font-family: 'DINN';
+  src: url('fonts/din-webfont.eot');
+  src: url('fonts/din-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/din-webfont.woff2') format('woff2'),
+       url('fonts/din-webfont.woff') format('woff'),
+       url('fonts/din-webfont.ttf') format('truetype'),
+       url('fonts/din-webfont.svg#dinregular') format('svg');
 }
 /*GENERIC*/
 * {
   box-sizing: border-box;
-  font-family: 'DIN', 'Cabin', 'Helvetica' sans-serif;
+  font-family: 'DINN', 'Cabin', 'Helvetica' sans-serif;
   font-weight: normal;
 }
 a, a:active, a:focus {
