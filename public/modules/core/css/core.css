@@ -1,6 +1,6 @@
 /*FONTS*/
 @font-face {
-  font-family: 'DIN';
+  font-family: 'ffDIN';
   src: url('fonts/din_bold-webfont.eot');
   src: url('fonts/din_bold-webfont.eot?#iefix') format('embedded-opentype'),
        url('fonts/din_bold-webfont.woff2') format('woff2'),
@@ -10,7 +10,7 @@
   font-weight: bold;
 }
 @font-face {
-  font-family: 'DIN';
+  font-family: 'ffDIN';
   src: url('fonts/din-webfont.eot');
   src: url('fonts/din-webfont.eot?#iefix') format('embedded-opentype'),
        url('fonts/din-webfont.woff2') format('woff2'),
@@ -21,7 +21,7 @@
 /*GENERIC*/
 * {
   box-sizing: border-box;
-  font-family: 'DIN', 'Cabin', 'Helvetica' sans-serif;
+  font-family: 'ffDIN', 'Cabin', 'Helvetica', sans-serif;
   font-weight: normal;
 }
 a, a:active, a:focus {
