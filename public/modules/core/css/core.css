@@ -21,7 +21,7 @@
 /*GENERIC*/
 * {
   box-sizing: border-box;
-  font-family: 'ffDIN', 'Cabin', 'Helvetica', sans-serif;
+  font-family: 'ffDIN', 'DIN', 'Cabin', 'Helvetica', sans-serif;
   font-weight: normal;
 }
 a, a:active, a:focus {
